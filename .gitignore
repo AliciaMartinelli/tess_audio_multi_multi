@@ -1,0 +1,8 @@
+.DS_Store
+raw
+dataset
+aug_dataset
+features
+*.png
+*.model
+log
