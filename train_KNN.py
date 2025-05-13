@@ -9,8 +9,6 @@ from sklearn.metrics import (f1_score, precision_score, recall_score, roc_auc_sc
                              confusion_matrix, roc_curve)
 import matplotlib.pyplot as plt
 import joblib
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
 
 from PIL import Image
 

@@ -6,7 +6,6 @@ import optuna
 from sklearn.linear_model import RidgeClassifier
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.metrics import f1_score, precision_score, recall_score, roc_auc_score, confusion_matrix, precision_recall_curve, roc_curve
-from sklearn.utils.class_weight import compute_class_weight
 import matplotlib.pyplot as plt
 from PIL import Image
 import joblib
@@ -40,7 +39,7 @@ X_temp, X_test, y_temp, y_test = train_test_split(X, y, test_size=0.1, stratify=
 X_train, X_val, y_train, y_val = train_test_split(X_temp, y_temp, test_size=0.1111, stratify=y_temp, random_state=SEED)
 
 def objective(trial):
-    solver = trial.suggest_categorical("solver", ["lbfgs", "saga", "svd", "cholesky", "lsqr", "sparse_cg", "sag"])
+    solver = trial.suggest_categorical("solver", ["lbfgs", "svd", "cholesky", "lsqr", "sparse_cg"])
     alpha = trial.suggest_float("alpha", 0.1, 1.0, step=0.1)
     positive = True if solver == "lbfgs" else False
 
